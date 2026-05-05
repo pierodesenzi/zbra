@@ -29,4 +29,5 @@ def solve_address(file_path):
 
     return counter
 
-print(f"Final address: {solve_address("commands.txt")} Cross Street")
+if __name__ == "__main__":
+    print(f"Final address: {solve_address('commands.txt')} Cross Street")
