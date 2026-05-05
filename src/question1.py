@@ -1,7 +1,6 @@
-# Qustion 1
+# Question 1
 
-len_password = 6  # password can only be on length 6
-
+len_password = 6  # password can only be of length 6
 
 # Part 1
 
@@ -38,7 +37,6 @@ def calculate_num_passwords_part1() -> int:
     # output: int -> number of possible passwords within the range
     # password is between 184759 and 856920, assuming inclusive.
     # approach: brute-force over fixed range [184759, 856920] -> O(672,162) ~ O(1) for this input
-    # since range is immutable, this acts like O(1)
     return sum(1 for n in range(184759, 856921) if password_follows_rules_part1(n))
 
 print("Part 1 answer:", calculate_num_passwords_part1())  # Answer: 1687
@@ -52,6 +50,8 @@ def password_follows_rules_part2(password) -> bool:
     # test whether thee password follows the given rules
     # input: password in int format
     # output: bool -> "are rules being followed?"
+    # new rule: the password needs at least one instance of exactly 2 consecutive repeated numbers - e.g: 445555 is valid, 444555 is not
+
     str_password = str(password)
 
     # 1) needs 2, but not 3, consecutive repeated numbers
@@ -84,7 +84,6 @@ def calculate_num_passwords_part2() -> int:
     # output: int -> number of possible passwords within the range
     # password is between 184759 and 856920, assuming inclusive.
     # approach: brute-force over fixed range [184759, 856920] -> O(672,162) ~ O(1) for this input
-    # new rule: the password needs at least one instance of exactly 2 consecutive repeated numbers - e.g: 445555 is valid, 444555 is not
     return sum(1 for n in range(184759, 856921) if password_follows_rules_part2(n))
 
 print("Part 2 answer:", calculate_num_passwords_part2())
